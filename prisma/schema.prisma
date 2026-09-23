@@ -91,7 +91,8 @@ model User {
 
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  sessions  Session[]
+  sessions            Session[]
+  passwordResetTokens PasswordResetToken[]
 
   @@index([departmentId])
   @@index([role])
@@ -307,4 +308,20 @@ model AuditLog {
   @@index([userId])
   @@index([action])
   @@index([createdAt])
+}
+
+// ─────────────────────────────────────────────
+// PASSWORD RESET TOKEN
+// ─────────────────────────────────────────────
+
+model PasswordResetToken {
+  id        String    @id @default(uuid()) @db.Uuid
+  token     String    @unique
+  userId    String    @db.Uuid
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId])
 }
