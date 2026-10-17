@@ -246,6 +246,74 @@ export default function LoginForm({ onSubmit }) {
       <p className="mt-sm text-center font-body-sm text-on-surface-variant">
         Acesso restrito a usuários cadastrados pelo administrador.
       </p>
+
+      {/* Test Credentials Quick-Fill Box */}
+      <div className="mt-lg rounded-lg border border-primary/20 bg-primary-container/10 p-sm">
+        <div className="flex items-center gap-1.5 mb-2 text-primary font-semibold text-xs">
+          <span className="material-symbols-outlined text-base" aria-hidden="true">
+            science
+          </span>
+          <span>Credenciais de Teste (Clique para preencher):</span>
+        </div>
+
+        <div className="grid grid-cols-2 gap-1.5 text-xs">
+          <button
+            type="button"
+            onClick={() => {
+              setIdentifier("admin@sisd.com");
+              setPassword("admin123");
+              setFieldErrors({});
+              setGeneralError("");
+            }}
+            className="flex flex-col items-start p-2 rounded bg-surface border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-colors text-left cursor-pointer"
+          >
+            <span className="font-bold text-on-surface">Administrador</span>
+            <span className="text-[11px] text-outline">admin@sisd.com</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              setIdentifier("solicitante@sisd.com");
+              setPassword("123");
+              setFieldErrors({});
+              setGeneralError("");
+            }}
+            className="flex flex-col items-start p-2 rounded bg-surface border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-colors text-left cursor-pointer"
+          >
+            <span className="font-bold text-on-surface">Solicitante</span>
+            <span className="text-[11px] text-outline">solicitante@sisd...</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              setIdentifier("agente@sisd.com");
+              setPassword("123");
+              setFieldErrors({});
+              setGeneralError("");
+            }}
+            className="flex flex-col items-start p-2 rounded bg-surface border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-colors text-left cursor-pointer"
+          >
+            <span className="font-bold text-on-surface">Agente Compras</span>
+            <span className="text-[11px] text-outline">agente@sisd...</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              setIdentifier("aprovador@sisd.com");
+              setPassword("123");
+              setFieldErrors({});
+              setGeneralError("");
+            }}
+            className="flex flex-col items-start p-2 rounded bg-surface border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-colors text-left cursor-pointer"
+          >
+            <span className="font-bold text-on-surface">Aprovador</span>
+            <span className="text-[11px] text-outline">aprovador@sisd...</span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
